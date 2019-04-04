@@ -6,15 +6,17 @@ import store from './store';
 import Navbar from './components/layout/Navbar';
 import Footer from './components/layout/Footer';
 import Landing from "./components/layout/Landing";
-import jwt_decode from 'jwt-decode';
-import setAuthToken from './utils/setAuthToken';
-import { setCurrentUser } from './actions/authActions';
+// import jwt_decode from 'jwt-decode';
+// import setAuthToken from './utils/setAuthToken';
+// import { setCurrentUser } from './actions/authActions';
 
 import PrivateRoute from './common/PrivateRoute';
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from './components/dashboard/Dashboard';
-
+import 'jquery/src/jquery';
+import 'bootstrap';
+// import 'popper';
 import './App.css';
 
 // // Check for token
