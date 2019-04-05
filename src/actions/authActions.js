@@ -3,6 +3,20 @@ import jwt_decode from 'jwt-decode';
 
 import setAuthToken from '../utils/setAuthToken';
 import { GET_ERRORS, SET_CURRENT_USER } from "./types";
+// import mysql from 'mysql';
+
+// // const mysql = require('mysql');
+
+// const con = mysql.createConnection({
+//   host: "localhost",
+//   user: "pratik",
+//   password: "Kpratik@13"
+// });
+
+// con.connect(function(err) {
+//   if (err) throw err;
+//   console.log("Connected!");
+// });
 
 /**
  * Register user and redirect to login if success

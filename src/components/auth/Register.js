@@ -4,6 +4,7 @@ import { withRouter } from 'react-router-dom';
 import classnames from 'classnames';
 import { connect } from 'react-redux';
 import { registerUser } from "../../actions/authActions";
+import mongodb from 'mongodb';
 
 export class Register extends Component {
 
@@ -22,6 +23,44 @@ export class Register extends Component {
     if (this.props.auth.isAuthenticated) {
       this.props.history.push('/dashboard');
     }
+    const MongoClient = mongodb.MongoClient;
+    // const uri = "";
+    // const client = new MongoClient(uri, { useNewUrlParser: true });
+    // client.connect(err => {
+    //   const collection = client.db("test").collection("devices");
+    //   // perform actions on the collection object
+    //   console.log(collection)
+    //   client.close();
+    // });
+
+    // const MongoClient = require('mongodb').MongoClient;
+    console.log('hello')
+    const MONGO_URL = 'mongodb://kailapratik13@gmail.com:Kpratik@13@cluster0-0qhtu.mongodb.net/test?retryWrites=true';
+    MongoClient.connect(MONGO_URL, {useNewUrlParser: true})
+    .then(() => console.log('connecting to database successful'))
+    .catch(err => console.error('could not connect to mongo DB', err))
+    // alert('hello')
+    // MongoClient.connect(MONGO_URL, { useNewUrlParser: true }, (err, db) => {  
+    //   if (err) {
+    //     return console.log(err);
+    //   }
+
+    //   // Do something with db here, like inserting a record
+    //   db.collection('notes').insertOne(
+    //     {
+    //       title: 'Hello MongoDB',
+    //       text: 'Hopefully this works!'
+    //     },
+    //     function (err, res) {
+    //       if (err) {
+    //         db.close();
+    //         return console.log(err);
+    //       }
+    //       // Success
+    //       db.close();
+    //     }
+    //   )
+    // });
   }
 
   componentWillReceiveProps(nextProps) {
@@ -48,6 +87,7 @@ export class Register extends Component {
 
   render() {
     const { errors } = this.state;
+    
 
     return <div className="register">
         <div className="container">

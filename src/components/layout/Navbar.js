@@ -24,14 +24,14 @@ export class Navbar extends Component {
         </li>
       </ul>;
 
-    const guestLinks = <nav class="navbar navbar-default">
-    <div class="container-fluid">
-      <div class="navbar-header">
+    const guestLinks = <nav className="navbar navbar-default">
+    <div className="container-fluid">
+      <div className="navbar-header">
         <Link className="navbar-brand" to="/">
           Demo App
         </Link>
       </div>
-      <ul class="nav navbar-nav">
+      <ul className="nav navbar-nav">
         <li>
           <Link className="nav-link" to="/users">
             Users
