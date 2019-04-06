@@ -14,8 +14,10 @@ export class Navbar extends Component {
     const { isAuthenticated, user } = this.props.auth;
 
     let imageDom = <img />;
+    let userName = '';
     if(user){
       imageDom = <img style={{ width: "25px", marginRight: "5px" }} className="rounded-circle" src={user.avatar} alt={user.name} />
+      userName = user.name;
     };
 
     const authLinks = <ul className="navbar-nav ml-auto">
@@ -41,6 +43,7 @@ export class Navbar extends Component {
       <li className="nav-item dropdown">
         <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
           {imageDom}
+          {userName}
         </div>
         <div className="dropdown-menu" aria-labelledby="navbarDropdown">
             <span

@@ -12,3 +12,19 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New",
     monospace;
 }
+
+.pbar-25 {
+  width: 25%
+}
+
+.pbar-50 {
+  width: 50%
+}
+
+.pbar-75 {
+  width: 75%
+}
+
+.pbar-100 {
+  width: 100%
+}
