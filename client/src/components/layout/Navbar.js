@@ -19,14 +19,46 @@ export class Navbar extends Component {
     };
 
     const authLinks = <ul className="navbar-nav ml-auto">
-      <li className="nav-item">
+      <form className="form-inline my-2 my-lg-0">
+        <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
+        {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
+      </form>
+      <li class="nav-item">
+        <a class="nav-link" href="#">My Posts</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Planner</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Analytics</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">New Post</a>
+      </li>
+      <li class="nav-item">
+        <a class="nav-link" href="#">Upgrade My Plan</a>
+      </li>
+      <li className="nav-item dropdown">
+        <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+          {imageDom}
+        </div>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
+            <span
+            style={{ cursor: 'pointer', color:'#000' }} 
+            onClick={this.onLogoutClick.bind(this)} 
+            className="nav-link dropdown-item">
+              Logout
+            </span>
+        </div>
+      </li>
+      {/* <li className="nav-item">
         <span
           style={{ cursor: 'pointer' }} 
           onClick={this.onLogoutClick.bind(this)} 
           className="nav-link">
              {imageDom} Logout
           </span>
-        </li>
+        </li> */}
       </ul>;
 
     const guestLinks = <ul className="navbar-nav ml-auto">
@@ -59,6 +91,7 @@ export class Navbar extends Component {
           <div className="collapse navbar-collapse" id="mobile-nav">
             {isAuthenticated ? authLinks : guestLinks}
           </div>
+          
         </div>
       </nav>;
   }
