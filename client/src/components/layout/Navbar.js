@@ -50,7 +50,7 @@ export class Navbar extends Component {
     return <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
         <div className="container">
           <Link className="navbar-brand" to="/">
-            Demo App
+            DataPlatForm
           </Link>
           <button className="navbar-toggler" type="button" data-toggle="collapse" data-target="#mobile-nav">
             <span className="navbar-toggler-icon" />

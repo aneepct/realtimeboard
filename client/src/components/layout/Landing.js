@@ -18,8 +18,8 @@ export class Landing extends Component {
           <div className="container">
             <div className="row">
               <div className="col-md-12 text-center">
-                <h1 className="display-3 mb-4">Demo Application</h1>
-                <p className="lead">Lorem ipsum dolor sit amet consectetur adipisicing elit. Nulla suscipit sapiente consequatur laboriosam doloremque. Ipsam delectus aperiam, nobis, reiciendis ullam eligendi iure fuga rem molestias eos, minima iusto a quis!</p>
+                <h1 className="display-3 mb-4">DataPlatForm</h1>
+                <p className="lead">DataPlatForm</p>
                 <hr />
                 <Link to="register" className="btn btn-lg btn-info mr-2">Sign Up</Link>
                 <Link to="login" className="btn btn-lg btn-light">Login</Link>
