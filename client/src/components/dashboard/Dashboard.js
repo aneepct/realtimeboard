@@ -2,12 +2,15 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Chart from 'chart.js';
+import { getPosts } from "../../actions/postActions";
 
 export class Dashboard extends Component {
   componentDidMount() {
     if (!this.props.auth.isAuthenticated) {
       this.props.history.push('/login');
     }
+
+    this.props.getPosts(10);
 
     let lineChart = document.getElementById('lineChart');
     let pieChart = document.getElementById('pieChart');
@@ -65,42 +68,53 @@ export class Dashboard extends Component {
 
   render() {
     const { user } = this.props.auth;
+    const { post } = this.props;
+
+    let feedsDom = []
+    let scheduleDom = []
+    for (const value of post.all.reverse()) {
+      feedsDom.push(<div className="col-md-12">
+                    <div className="card">
+                      <img src={value.media} className="card-img-top" alt="..." />
+                      <div className="card-body">
+                        <h5 className="card-title">{value.name}</h5>
+                        <p className="card-text">{value.name}</p>
+                        <button className="btn btn-primary">View</button>
+                      </div>
+                    </div>
+                  </div>)
+
+        scheduleDom.push(<div className="col-md-12">
+                          <div className="card">
+                            <img src={value.media} height="200" className="card-img-top" alt="..." />
+                            <div className="card-body">
+                              <h5 className="card-title">{value.name}</h5>
+                              <p className="card-text">{value.name}</p>
+                              <button className="btn btn-primary">View</button>
+                            </div>
+                          </div>
+                        </div>)
+    }
+
+    console.log(feedsDom);
     
     return <div className="row">
       <div className="col-md-4">
         <div className="row">
           <div className="col-md-12">
-            <h1>Feed</h1>
-          </div>
-          <div className="col-md-12">
-            <div className="card">
-              <img src={user.avatar} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Feed Name</h5>
-                <p className="card-text">Feed Details to share on facebook, linkedin, twitter etc..</p>
-                <button className="btn btn-primary">View</button>
-              </div>
-            </div>
+            <h1>Feeds</h1>
           </div>
 
-          <div className="col-md-12">
-            <div className="card">
-              <img src={user.avatar} className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Feed Name</h5>
-                <p className="card-text">Feed Details to share on facebook, linkedin, twitter etc..</p>
-                <button className="btn btn-primary">View</button>
-              </div>
-            </div>
-          </div>
+          {feedsDom}
+
         </div>
       </div>
 
       <div className="col-md-8">
         <div className="row">
           <div className="col-md-4 offset-md-8">
-            <div class="form-group">
-              <select class="form-control">
+            <div className="form-group">
+              <select className="form-control">
                 <option>Weekly</option>
                 <option>Yearly</option>
               </select>
@@ -139,27 +153,7 @@ export class Dashboard extends Component {
             </div>
           </div>
 
-          <div className="col-md-12">
-            <div className="card">
-              <img src={user.avatar} height="200" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Feed Name</h5>
-                <p className="card-text">Feed Details to share on facebook, linkedin, twitter etc..</p>
-                <button className="btn btn-primary">View</button>
-              </div>
-            </div>
-          </div>
-
-          <div className="col-md-12">
-            <div className="card">
-              <img src={user.avatar} height="200" className="card-img-top" alt="..." />
-              <div className="card-body">
-                <h5 className="card-title">Feed Name</h5>
-                <p className="card-text">Feed Details to share on facebook, linkedin, twitter etc..</p>
-                <button className="btn btn-primary">View</button>
-              </div>
-            </div>
-          </div>
+          {scheduleDom}
         </div>
       </div>
     </div>;
@@ -167,11 +161,14 @@ export class Dashboard extends Component {
 }
 
 Dashboard.propTypes = {
-  auth: PropTypes.object.isRequired
+  auth: PropTypes.object.isRequired,
+  post: PropTypes.object.isRequired,
+  getPosts: PropTypes.func.isRequired
 }
 
 const mapStateToProp = state => ({
-  auth: state.auth
+  auth: state.auth,
+  post: state.post
 });
 
-export default connect(mapStateToProp, {})(Dashboard);
+export default connect(mapStateToProp, { getPosts })(Dashboard);

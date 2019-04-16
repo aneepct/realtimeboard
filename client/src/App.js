@@ -15,6 +15,7 @@ import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from './components/dashboard/Dashboard';
 import User from './components/user/User';
+import Post from './components/posts/Post';
 
 import './App.css';
 
@@ -49,6 +50,7 @@ class App extends Component {
               <Route exact path="/login" component={Login} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
+                <PrivateRoute exact path="/posts" component={Post} />
               </Switch>
             </div>
             <Footer />

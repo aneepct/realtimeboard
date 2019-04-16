@@ -6,3 +6,5 @@ export const UPDATE_DATE_RANGES = "UPDATE_DATE_RANGES";
 export const USER_FILTER = "USER_FILTER";
 export const UPDATE_USER_IDS = "UPDATE_USER_IDS";
 export const GET_USERS_OPTIONS = "GET_USERS_OPTIONS";
+export const CREATE_POST = "CREATE_POST";
+export const GET_POSTS = "GET_POSTS";

@@ -8,12 +8,17 @@ const path = require('path');
 const auth = require('./routes/api/auth');
 // Getting user routes
 const users = require('./routes/api/users');
+// Getting post routes
+const posts = require('./routes/api/posts');
 
 const app = express();
 
 // Body Parser middleware
-app.use(bodyParser.urlencoded({ extended: false }));
-app.use(bodyParser.json());
+app.use(bodyParser.json({limit: '10mb', extended: true}))
+app.use(bodyParser.urlencoded({limit: '10mb', extended: true}))
+
+// app.use(bodyParser.urlencoded({ extended: false }));
+// app.use(bodyParser.json());
 
 // DB Config
 const db = require('./config/key').mongoURI;
@@ -32,6 +37,7 @@ require('./config/passport')(passport);
 
 app.use('/api/auth', auth);
 app.use('/api/user', users);
+app.use('/api/post', posts);
 
 if(process.env.NODE_ENV === 'production') {
   // Set static folder

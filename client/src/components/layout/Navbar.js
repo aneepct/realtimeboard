@@ -25,20 +25,20 @@ export class Navbar extends Component {
         <input className="form-control mr-sm-2" type="search" placeholder="Search" aria-label="Search" />
         {/* <button className="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button> */}
       </form>
-      <li class="nav-item">
-        <a class="nav-link" href="#">My Posts</a>
+      <li className="nav-item">
+        <a className="nav-link" href="/dashboard">My Posts</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Planner</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Planner</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Analytics</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Analytics</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">New Post</a>
+      <li className="nav-item">
+        <a className="nav-link" href="/posts">New Post</a>
       </li>
-      <li class="nav-item">
-        <a class="nav-link" href="#">Upgrade My Plan</a>
+      <li className="nav-item">
+        <a className="nav-link" href="#">Upgrade My Plan</a>
       </li>
       <li className="nav-item dropdown">
         <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
@@ -96,7 +96,42 @@ export class Navbar extends Component {
           </div>
           
         </div>
-      </nav>;
+
+
+        <div className="modal fade" id="newPostModal" tabIndex="-1" role="dialog" aria-labelledby="exampleModalLabel" aria-hidden="true">
+          <div className="modal-dialog" role="document">
+            <div className="modal-content">
+              <div className="modal-header">
+                <h5 className="modal-title" id="exampleModalLabel">New Post</h5>
+                <button type="button" className="close" data-dismiss="modal" aria-label="Close">
+                  <span aria-hidden="true">&times;</span>
+                </button>
+              </div>
+              <div className="modal-body">
+                <div className="form-group">
+                  <label>Post Name</label>
+                  <input type="text" className="form-control" placeholder="Enter post name" />
+                  <small className="form-text text-muted">Enter your post name here.</small>
+                </div>
+                <div className="form-group">
+                  <label>Post Description</label>
+                  <textarea className="form-control" rows="3" placeholder="Enter description name"></textarea>
+                  <small className="form-text text-muted">Enter your post description here.</small>
+                </div>
+                <div className="form-group">
+                  <label>Select Media</label>
+                  <input type="file" className="form-control-file" />
+                </div>
+              </div>
+              <div className="modal-footer">
+                <button type="button" className="btn btn-secondary" data-dismiss="modal">Schedule for later</button>
+                <button type="button" className="btn btn-primary">Post Now</button>
+              </div>
+            </div>
+          </div>
+        </div>
+      </nav>
+      ;
   }
 }
 
