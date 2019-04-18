@@ -1,4 +1,4 @@
-import { CREATE_POST, GET_POSTS } from '../actions/types';
+import { CREATE_POST, GET_POSTS, DELETE_POSTS } from '../actions/types';
 
 const initialState = {
   single: {},
@@ -16,6 +16,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         all: action.payload
+      }
+    case DELETE_POSTS:
+      return {
+        ...state,
+        single: action.payload
       }
     default:
       return state;

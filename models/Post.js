@@ -7,7 +7,7 @@ const PostSchema = new Schema({
     type: String,
     require: true
   },
-  details: {
+  post_details: {
     type: String,
     require: true
   },

@@ -11,7 +11,7 @@ export class Post extends Component {
     
         this.state = { 
           name: "", 
-          details: "", 
+          post_details: "", 
           media: "",
           errors: {}
         };
@@ -75,16 +75,16 @@ export class Post extends Component {
                 <textarea 
                     type="text" 
                     className={classnames('form-control form-control-lg', {
-                      'is-invalid': errors.details
+                      'is-invalid': errors.post_details
                     })} 
                     rows="3"
                     placeholder="Enter post description" 
-                    name="details"
+                    name="post_details"
                     onChange={this.onChange}
-                    value={this.state.details}
+                    value={this.state.post_details}
                 ></textarea>
-                {errors.details && (
-                    <div className="invalid-feedback">{errors.details}</div>
+                {errors.post_details && (
+                    <div className="invalid-feedback">{errors.post_details}</div>
                 )}
                 <small className="form-text text-muted">Enter your post description here.</small>
             </div>

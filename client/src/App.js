@@ -16,6 +16,7 @@ import Register from "./components/auth/Register";
 import Dashboard from './components/dashboard/Dashboard';
 import User from './components/user/User';
 import Post from './components/posts/Post';
+import MyPosts from './components/posts/MyPosts';
 
 import './App.css';
 
@@ -51,6 +52,7 @@ class App extends Component {
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/posts" component={Post} />
+                <PrivateRoute exact path="/my_posts" component={MyPosts} />
               </Switch>
             </div>
             <Footer />

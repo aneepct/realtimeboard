@@ -21,13 +21,13 @@ router.post('/create', (req, res) => {
 
   const newPost = new Post({
     name: req.body.name,
-    details: req.body.email,
+    post_details: req.body.post_details,
     media: req.body.media
   });
 
   newPost
     .save()
-    .then(user => res.json(user))
+    .then(post => res.json(post))
     .catch(err => console.log(err));
 });
 
@@ -58,7 +58,7 @@ router.get('/all/:total_posts', (req, res) => {
 
     postQuery
       .skip(0).limit(total_posts)
-      .select(['name', 'details', 'media', 'date'])
+      .select(['name', 'post_details', 'media', 'date'])
       .then(posts => {
         if(!posts || posts.length === 0) {
           errors.noprofile = 'There are no posts.';
@@ -80,7 +80,7 @@ router.get('/search_by_name/:search_string', (req, res) => {
     const errors = {}
 
     Post.find().where('name').regex(new RegExp(req.params.search_string, 'i'))
-        .select(['name', 'details', 'media', 'date'])
+        .select(['name', 'post_details', 'media', 'date'])
         .then(posts => {
             if(!posts) {
                 errors.noprofile = 'There are no posts.';
@@ -92,5 +92,29 @@ router.get('/search_by_name/:search_string', (req, res) => {
             res.status(400).json({ posts: 'There are no posts.' })
         )
 });
+
+ /**
+ * @route DELETE /api/post/delete
+ * @description Delete posts by id
+ * @access Public
+ */
+router.delete('/delete/:id', (req, res) => {
+  const errors = {}
+
+  Post.findByIdAndDelete(req.params.id)
+      .then(posts => {
+        console.log(posts);
+          if(!posts) {
+              errors.noprofile = 'There are no posts.';
+              return res.status(404).json(errors);
+          }
+          res.json(posts);
+      })
+      .catch(err => 
+          res.status(400).json({ posts: 'There are no posts.' })
+      )
+});
+
+
  
 module.exports = router;

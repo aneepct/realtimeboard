@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
 import Chart from 'chart.js';
-import { getPosts } from "../../actions/postActions";
+import { getPosts, deletPost } from "../../actions/postActions";
 
 export class Dashboard extends Component {
   componentDidMount() {
@@ -66,46 +66,51 @@ export class Dashboard extends Component {
     
   }
 
+  async removePosts(id) {
+    console.log(id);
+    await this.props.deletPost(id);
+    this.props.getPosts(10);
+  }
+
   render() {
-    const { user } = this.props.auth;
     const { post } = this.props;
 
     let feedsDom = []
     let scheduleDom = []
+    console.log(post.all);
     for (const value of post.all.reverse()) {
-      feedsDom.push(<div className="col-md-12">
+      feedsDom.push(<div className="col-md-12" key={value._id} >
                     <div className="card">
                       <img src={value.media} className="card-img-top" alt="..." />
                       <div className="card-body">
                         <h5 className="card-title">{value.name}</h5>
-                        <p className="card-text">{value.name}</p>
+                        <p className="card-text">{value.post_details}</p>
                         <button className="btn btn-primary">View</button>
+                        <button className="btn btn-danger pull-right" onClick={() => this.removePosts(value._id)}>Remove</button>
                       </div>
                     </div>
                   </div>)
 
-        scheduleDom.push(<div className="col-md-12">
+        scheduleDom.push(<div className="col-md-12" key={value._id} >
                           <div className="card">
                             <img src={value.media} height="200" className="card-img-top" alt="..." />
                             <div className="card-body">
                               <h5 className="card-title">{value.name}</h5>
-                              <p className="card-text">{value.name}</p>
+                              <p className="card-text">{value.post_details}</p>
                               <button className="btn btn-primary">View</button>
                             </div>
                           </div>
                         </div>)
     }
-
-    console.log(feedsDom);
     
     return <div className="row">
       <div className="col-md-4">
         <div className="row">
           <div className="col-md-12">
-            <h1>Feeds</h1>
+            <h1> Feeds </h1>
           </div>
 
-          {feedsDom}
+          { feedsDom }
 
         </div>
       </div>
@@ -163,7 +168,8 @@ export class Dashboard extends Component {
 Dashboard.propTypes = {
   auth: PropTypes.object.isRequired,
   post: PropTypes.object.isRequired,
-  getPosts: PropTypes.func.isRequired
+  getPosts: PropTypes.func.isRequired,
+  deletPost: PropTypes.func.isRequired,
 }
 
 const mapStateToProp = state => ({
@@ -171,4 +177,4 @@ const mapStateToProp = state => ({
   post: state.post
 });
 
-export default connect(mapStateToProp, { getPosts })(Dashboard);
+export default connect(mapStateToProp, { getPosts, deletPost })(Dashboard);
