@@ -17,6 +17,9 @@ import Dashboard from './components/dashboard/Dashboard';
 import User from './components/user/User';
 import Post from './components/posts/Post';
 import MyPosts from './components/posts/MyPosts';
+import ComparisionReport from './components/configurations/ComparisionReport';
+import AdsCalculator from './components/configurations/AdsCalculator';
+import AudienceTrust from './components/configurations/AudienceTrust';
 
 import './App.css';
 
@@ -53,6 +56,9 @@ class App extends Component {
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/posts" component={Post} />
                 <PrivateRoute exact path="/my_posts" component={MyPosts} />
+                <PrivateRoute exact path="/configuration_report" component={ComparisionReport} />
+                <PrivateRoute exact path="/ads_calculator" component={AdsCalculator} />
+                <PrivateRoute exact path="/audience_trust" component={AudienceTrust} />
               </Switch>
             </div>
             <Footer />
