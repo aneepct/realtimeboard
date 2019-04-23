@@ -79,19 +79,19 @@ export class Dashboard extends Component {
     let scheduleDom = []
     console.log(post.all);
     for (const value of post.all.reverse()) {
-      feedsDom.push(<div className="col-md-12" key={value._id} >
+      feedsDom.push(<div className="col-md-12 m-2" key={value._id} >
                     <div className="card">
                       <img src={value.media} className="card-img-top" alt="..." />
                       <div className="card-body">
                         <h5 className="card-title">{value.name}</h5>
                         <p className="card-text">{value.post_details}</p>
-                        <button className="btn btn-primary">View</button>
+                        <button className="btn btn-primary m-2">View</button>
                         <button className="btn btn-danger pull-right" onClick={() => this.removePosts(value._id)}>Remove</button>
                       </div>
                     </div>
                   </div>)
 
-        scheduleDom.push(<div className="col-md-12" key={value._id} >
+        scheduleDom.push(<div className="col-md-12 m-2" key={value._id} >
                           <div className="card">
                             <img src={value.media} height="200" className="card-img-top" alt="..." />
                             <div className="card-body">
@@ -106,7 +106,7 @@ export class Dashboard extends Component {
     return <div className="row">
       <div className="col-md-4">
         <div className="row">
-          <div className="col-md-12">
+          <div className="col-md-12 m-2">
             <h1> Feeds </h1>
           </div>
 
@@ -116,7 +116,7 @@ export class Dashboard extends Component {
       </div>
 
       <div className="col-md-8">
-        <div className="row">
+        <div className="row m-2">
           <div className="col-md-4 offset-md-8">
             <div className="form-group">
               <select className="form-control">
@@ -125,7 +125,7 @@ export class Dashboard extends Component {
               </select>
             </div>
           </div>
-          <div className="col-md-12">
+          <div className="col-md-12 m-2">
             <div className="card">
               <div className="card-body">
                 <div className="row">
@@ -146,7 +146,7 @@ export class Dashboard extends Component {
             </div>
           </div>
 
-          <div className="col-md-12">
+          <div className="col-md-12 m-2">
             <div className="card">
               <div className="card-body">
                 <div className="row">

@@ -48,8 +48,8 @@ export class Post extends Component {
     const { errors } = this.state;
     console.log(post, this.state);
     
-    return <div className="row">
-      <div className="col-md-12">
+    return <div className="row m-5">
+      <div className="col">
         <div className="row">
           <div className="col-md-12">
             <h3>New Post</h3>
@@ -95,18 +95,20 @@ export class Post extends Component {
                 {errors.media && (
                     <div className="invalid-feedback">{errors.media}</div>
                 )}
-                {this.state.media && (
-                    <img style={{width: 100, height: 100,}} src={this.state.media} />
-                )}
             </div>
           </div>
           <div className="col-md-12">
-            <a href="/dashboard">
-                <button type="cancel" className="btn btn-primary pull-right">Back</button>
+            <a href="/dashboard" className="m-2">
+                <button type="cancel" className="btn btn-primary">Back</button>
             </a>
-            <button type="submit" onClick={() => this.createPost()} className="btn btn-primary pull-left">Submit</button>
+            <button type="submit" onClick={() => this.createPost()} className="btn btn-primary m-2">Submit</button>
           </div>
         </div>
+      </div>
+      <div className="col">
+        {this.state.media && (
+            <img src={this.state.media} alt="" />
+        )}
       </div>
     </div>;
   }

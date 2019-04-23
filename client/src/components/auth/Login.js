@@ -54,8 +54,8 @@ export class Login extends Component {
 
     return <div className="login">
         <div className="container">
-          <div className="row">
-            <div className="col-md-8 m-auto">
+          <div className="row align-items-center" style={{height: 630}}>
+            <div className="col">
               <h1 className="display-4 text-center">Log In</h1>
               <p className="lead text-center">
                 Sign in to your account
@@ -93,6 +93,15 @@ export class Login extends Component {
                 </div>
                 <input type="submit" className="btn btn-info btn-block mt-4" />
               </form>
+            </div>
+
+            <div className="col"></div>
+
+            <div className="col">
+                <h3>Data Platform</h3>
+                <p>Before you get started with a complete influencer discovery plateform</p>
+                <p>try out a free Instagram influencer search tool. Select what should be</p>
+                <p>the influencer's intrests and location to find the right people in seconds</p>
             </div>
           </div>
         </div>

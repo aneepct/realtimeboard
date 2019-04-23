@@ -2,6 +2,29 @@ img {
   width: 100%;
 }
 
+.nav-link {
+  color: rgba(255,255,255,1)!important;
+}
+
+.nav-link.active {
+  color: rgba(255,255,255,0.5)!important;
+}
+
+.carousel-caption {
+  top: 35%;
+  right: 80%;
+  width: 15%;
+}
+
+.title {
+  color: #cc3743;
+  font-weight: bold;
+}
+
+.jumbotron {
+  background-color: #cc3743;
+}
+
 .landing {
   position: relative;
   background: url('./img/showcase.jpg') no-repeat;

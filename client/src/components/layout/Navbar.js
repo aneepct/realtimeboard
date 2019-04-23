@@ -28,10 +28,10 @@ export class Navbar extends Component {
         <a className="nav-link" href="/my_posts">My Posts</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Planner</a>
+        <a className="nav-link" href="/planner">Planner</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="#">Analytics</a>
+        <a className="nav-link" href="/analytics">Analytics</a>
       </li>
       <li className="nav-item">
         <a className="nav-link" href="/posts">New Post</a>
@@ -44,29 +44,31 @@ export class Navbar extends Component {
           {imageDom}
           {userName}
         </div>
-        <div className="dropdown-menu" aria-labelledby="navbarDropdown">
-            <span
-            style={{ cursor: 'pointer', color:'#000' }} 
-            onClick={this.onLogoutClick.bind(this)} 
-            className="nav-link dropdown-item">
-              Logout
-            </span>
+        <div className="dropdown-menu" aria-labelledby="navbarDropdown" style={{backgroundColor: '#cc3743'}}>
+            <a className="nav-link" style={{ cursor: 'pointer'}} onClick={this.onLogoutClick.bind(this)} >Logout</a>
         </div>
       </li>
-      {/* <li className="nav-item">
-        <span
-          style={{ cursor: 'pointer' }} 
-          onClick={this.onLogoutClick.bind(this)} 
-          className="nav-link">
-             {imageDom} Logout
-          </span>
-        </li> */}
       </ul>;
 
     const guestLinks = <ul className="navbar-nav ml-auto">
         <li className="nav-item">
-          <Link className="nav-link" to="/users">
-            Users
+          <Link className="nav-link" to="/services">
+            Services
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/freeTools">
+            Free Tools
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/pricing">
+            Pricing
+          </Link>
+        </li>
+        <li className="nav-item">
+          <Link className="nav-link" to="/community">
+            Community
           </Link>
         </li>
         <li className="nav-item">
@@ -81,7 +83,7 @@ export class Navbar extends Component {
         </li>
       </ul>;
 
-    return <nav className="navbar navbar-expand-sm navbar-dark bg-dark mb-4">
+    return <nav className="navbar navbar-expand-sm navbar-dark" style={{backgroundColor: '#cc3743'}}>
         <div className="container">
           <Link className="navbar-brand" to="/">
             DataPlatForm

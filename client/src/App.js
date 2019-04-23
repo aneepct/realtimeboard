@@ -14,6 +14,8 @@ import PrivateRoute from './common/PrivateRoute';
 import Login from "./components/auth/Login";
 import Register from "./components/auth/Register";
 import Dashboard from './components/dashboard/Dashboard';
+import Analytics from './components/dashboard/Analytics';
+import Planner from './components/dashboard/Planner';
 import User from './components/user/User';
 import Post from './components/posts/Post';
 import MyPosts from './components/posts/MyPosts';
@@ -52,13 +54,15 @@ class App extends Component {
               <Route exact path="/users" component={User} />
               <Route exact path="/register" component={Register} />
               <Route exact path="/login" component={Login} />
+              <Route exact path="/ads_calculator" component={AdsCalculator} />
+              <Route exact path="/configuration_report" component={ComparisionReport} />
+              <Route exact path="/audience_trust" component={AudienceTrust} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/posts" component={Post} />
                 <PrivateRoute exact path="/my_posts" component={MyPosts} />
-                <PrivateRoute exact path="/configuration_report" component={ComparisionReport} />
-                <PrivateRoute exact path="/ads_calculator" component={AdsCalculator} />
-                <PrivateRoute exact path="/audience_trust" component={AudienceTrust} />
+                <PrivateRoute exact path="/analytics" component={Analytics} />
+                <PrivateRoute exact path="/planner" component={Planner} />
               </Switch>
             </div>
             <Footer />
