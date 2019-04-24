@@ -15,6 +15,8 @@
   "author": "Wingmaxx Technologies",
   "license": "MIT",
   "dependencies": {
+    "@fortawesome/free-brands-svg-icons": "^5.8.1",
+    "@fortawesome/free-regular-svg-icons": "^5.8.1",
     "bcryptjs": "^2.4.3",
     "body-parser": "^1.18.3",
     "chart.js": "^2.8.0",

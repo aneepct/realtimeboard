@@ -22,6 +22,8 @@ import MyPosts from './components/posts/MyPosts';
 import ComparisionReport from './components/configurations/ComparisionReport';
 import AdsCalculator from './components/configurations/AdsCalculator';
 import AudienceTrust from './components/configurations/AudienceTrust';
+import Services from './components/configurations/Services';
+import FreeTrial from './components/configurations/FreeTrial';
 
 import './App.css';
 
@@ -57,6 +59,8 @@ class App extends Component {
               <Route exact path="/ads_calculator" component={AdsCalculator} />
               <Route exact path="/configuration_report" component={ComparisionReport} />
               <Route exact path="/audience_trust" component={AudienceTrust} />
+              <Route exact path="/services" component={Services} />
+              <Route exact path="/free_trial" component={FreeTrial} />
               <Switch>
                 <PrivateRoute exact path="/dashboard" component={Dashboard} />
                 <PrivateRoute exact path="/posts" component={Post} />

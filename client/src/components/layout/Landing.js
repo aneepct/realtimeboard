@@ -28,7 +28,7 @@ export class Landing extends Component {
               />
               <div class="carousel-caption d-none d-md-block">
 
-                  <button type="button" class="btn btn-outline-light m-2">Free Trial</button>
+                  <a href="/free_trial" class="btn btn-outline-light m-2">Free Trial</a>
                   <a href="/login" class="btn btn-outline-light">Login</a>
               </div>
             </div>
