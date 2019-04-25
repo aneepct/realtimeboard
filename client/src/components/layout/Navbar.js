@@ -57,17 +57,17 @@ export class Navbar extends Component {
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/freeTools">
+          <Link className="nav-link" to="/free_trial">
             Free Tools
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/pricing">
+          <Link className="nav-link" to="/services">
             Pricing
           </Link>
         </li>
         <li className="nav-item">
-          <Link className="nav-link" to="/community">
+          <Link className="nav-link" to="/audience_trust">
             Community
           </Link>
         </li>

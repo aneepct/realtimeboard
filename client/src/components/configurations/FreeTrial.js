@@ -65,6 +65,7 @@ class FreeTrial extends Component {
     )
   }
 }
+
 FreeTrial.propTypes = {
     auth: PropTypes.object.isRequired,
     errors: PropTypes.object.isRequired

@@ -1,12 +1,14 @@
 import React, { Component } from 'react';
 import PropTypes from "prop-types";
 import { connect } from "react-redux";
+import FullCalendar from '@fullcalendar/react';
+import dayGridPlugin from '@fullcalendar/daygrid';
 
 class Planner extends Component {
   render() {
     return (
       <div>
-        
+        <FullCalendar defaultView="dayGridMonth" plugins={[ dayGridPlugin ]} />
       </div>
     )
   }
@@ -14,12 +16,13 @@ class Planner extends Component {
 
 Planner.propTypes = {
     auth: PropTypes.object.isRequired,
-    post: PropTypes.object.isRequired
-  }
-  
-  const mapStateToProp = state => ({
+    errors: PropTypes.object.isRequired
+}
+
+const mapStateToProp = state => ({
     auth: state.auth,
-    post: state.post
-  });
-  
-  export default connect(mapStateToProp, {  })(Planner);
+    post: state.post,
+    errors: state.errors
+});
+
+export default connect(mapStateToProp, { })(Planner);
