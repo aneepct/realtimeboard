@@ -3,7 +3,7 @@ const router = express.Router();
 
 const Post = require('../../models/Post');
 const validatePostInput = require("../../validation/post");
-
+const graph = require('fbgraph');
 
 /**
  * @route Post /api/post
@@ -11,13 +11,17 @@ const validatePostInput = require("../../validation/post");
  * @access Public
  */
 router.post('/create', (req, res) => {
-
   const { errors, isValid } = validatePostInput(req.body);
-
+  
   // Check Validation
   if (!isValid) {
     return res.status(400).json(errors);
   }
+  graph.setAccessToken(req.body.fbAccessToken);
+  graph.post("/feed", {message: req.body.name}, function(err, res) {
+    // returns the post id
+    console.log(res); // { id: xxxxx}
+  });
 
   const newPost = new Post({
     name: req.body.name,
@@ -29,6 +33,16 @@ router.post('/create', (req, res) => {
     .save()
     .then(post => res.json(post))
     .catch(err => console.log(err));
+
+  graph.setAccessToken(req.body.accessToken);
+  var wallPost = {
+    message: req.body.name
+  };
+    
+  graph.post("/feed", wallPost, function(err, res) {
+    // returns the post id
+    console.log(res); // { id: xxxxx}
+  });
 });
 
 

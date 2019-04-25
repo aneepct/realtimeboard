@@ -9,3 +9,4 @@ export const GET_USERS_OPTIONS = "GET_USERS_OPTIONS";
 export const CREATE_POST = "CREATE_POST";
 export const GET_POSTS = "GET_POSTS";
 export const DELETE_POSTS = "DELETE_POSTS";
+export const SET_FB_TOKEN = "SET_FB_TOKEN";

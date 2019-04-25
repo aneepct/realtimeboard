@@ -4,8 +4,28 @@ import {
   GET_ERRORS, 
   CREATE_POST, 
   GET_POSTS, 
-  DELETE_POSTS 
+  DELETE_POSTS,
+  SET_FB_TOKEN
 } from "./types";
+
+/**
+ * Register user and redirect to post if success
+ * @param {Object} postData 
+ * @param {Object} history 
+ */
+export const setFBToken = () => dispatch => {
+  axios
+    .get('/api/getFacebookToken')
+    .then(res => dispatch({
+      type: SET_FB_TOKEN,
+      payload: res.data
+    }))
+    .catch(err => dispatch({
+        type: GET_ERRORS,
+        payload: err.response.data
+      })
+    )
+}
 
 /**
  * Register user and redirect to login if success

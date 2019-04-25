@@ -42,20 +42,20 @@ class FreeTrial extends Component {
                         </small>
                     </p>
 
-                    <button type="submit" class="btn btn-primary">Submit</button>
+                    <button type="submit" className="btn btn-primary">Submit</button>
 
                     <a href=""> already have a account</a>
                 </div>
 
                 <div className="col-md-2 text-center p-3">
                     <p> sign up using</p>
-                    <button type="submit" class="btn btn-primary">FaceBook</button>
+                    <button type="submit" className="btn btn-primary">FaceBook</button>
                     <h3><strong>Or </strong> </h3>
-                    <button type="submit" class="btn btn-primary">Google</button> 
+                    <button type="submit" className="btn btn-primary">Google</button> 
                 </div>
 
                 <div className="col-md-5 text-center p-3">
-                        <img src="..." alt="..." class="img-thumbnail"/>
+                        <img src="..." alt="..." className="img-thumbnail"/>
                 </div>
 
             </div>

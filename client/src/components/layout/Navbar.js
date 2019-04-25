@@ -37,7 +37,7 @@ export class Navbar extends Component {
         <a className="nav-link" href="/posts">New Post</a>
       </li>
       <li className="nav-item">
-        <a className="nav-link" href="/configuration_report">Upgrade My Plan</a>
+        <a className="nav-link" href="/services">Services</a>
       </li>
       <li className="nav-item dropdown">
         <div className="nav-link dropdown-toggle" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">

@@ -1,8 +1,9 @@
-import { CREATE_POST, GET_POSTS, DELETE_POSTS } from '../actions/types';
+import { CREATE_POST, GET_POSTS, DELETE_POSTS, SET_FB_TOKEN } from '../actions/types';
 
 const initialState = {
   single: {},
-  all: []
+  all: [],
+  fbClient: {}
 }
 
 export default function(state = initialState, action) {
@@ -21,6 +22,11 @@ export default function(state = initialState, action) {
       return {
         ...state,
         single: action.payload
+      }
+    case SET_FB_TOKEN:
+      return {
+        ...state,
+        fbClient: action.payload
       }
     default:
       return state;

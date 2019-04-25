@@ -45,7 +45,31 @@ if(localStorage.jwtToken) {
   }
 }
 
+// function postFeed() {
+//   var message = 'Hi from facebook-node-js';
+//   FB.api('', 'post', {
+//       batch: [
+//           { method: 'post', relative_url: 'me/feed', body:'message=' + encodeURIComponent(message) }
+//       ]
+//   }, function (res) {
+//       var res0;
+  
+//       if(!res || res.error) {
+//           console.log(!res ? 'error occurred' : res.error);
+//           return;
+//       }
+  
+//       res0 = JSON.parse(res[0].body);
+  
+//       if(res0.error) {
+//           console.log(res0.error);
+//       } else {
+//           console.log('Post Id: ' + res0.id);
+//       }
+//   });
+// }
 class App extends Component {
+
   render() {
     return <Provider store={store}>
         <Router>
